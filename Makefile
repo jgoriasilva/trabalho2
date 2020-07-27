@@ -1,3 +1,3 @@
 
-main:
-	gcc -omain main.c imageprocessing.c -I./ -lfreeimage
+main: src/main.c
+	gcc -omain src/main.c src/imageprocessing.c -lfreeimage
