@@ -13,10 +13,15 @@
 pthread_t threads[3];
 pthread_mutex_t trava;
 int quantidade, rgb=0;
-imagem img;
 unsigned int tmp;
 int media[3], count[3];
 char tipo;
+
+/* Definir flags de protecao e visibilidade de memoria */
+int protection = PROT_READ | PROT_WRITE;
+int visibility = MAP_SHARED | MAP_ANON;
+/* Criar area de memoria compartilhada */
+imagem *img;
 
 void *thread(void *args){
 	char* p_j  = (char*) args;
@@ -28,72 +33,72 @@ void *thread(void *args){
 	case 0:
 		rgb++;
 		pthread_mutex_unlock(&trava);
-	 	for (int i=0; i<(img.width); i++) { // percorre colunas
-	  	for (int j=0; j<(img.height); j++) { // percorre linhas
+	 	for (int i=0; i<(img->width); i++) { // percorre colunas
+	  	for (int j=0; j<(img->height); j++) { // percorre linhas
 	    /* Zera algumas variaveis de interesse */
 	    	media[0] = 0;
 	     	count[0] = 0;
 
 	     	for(int k=i-N; k<=i+N; k++){ // percorre colunas
-	       	if(k<0||k>(img.width)) continue; // Retira bordas
+	       	if(k<0||k>(img->width)) continue; // Retira bordas
 	       	for(int l=j-N; l<=j+N; l++){ // percorre linhas
-	         	if(l<0 || l>(img.height)) continue; // Retira bordas
-	       		media[0] += img.r[l*img.width+k];
+	         	if(l<0 || l>(img->height)) continue; // Retira bordas
+	       		media[0] += img->r[l*img->width+k];
 	          count[0]++;
 	       	}
 	     	}
 				media[0] = media[0]/count[0];
 				tmp = media[0];
 				if(tmp>255) tmp = 255;
-				img.r[j*img.width + i] = tmp;
+				img->r[j*img->width + i] = tmp;
 	    }
 	  }
 		break;
 	case 1:
 		rgb++;
 		pthread_mutex_unlock(&trava);
-	 	for (int i=0; i<(img.width); i++) { // percorre colunas
-	  	for (int j=0; j<(img.height); j++) { // percorre linhas
+	 	for (int i=0; i<(img->width); i++) { // percorre colunas
+	  	for (int j=0; j<(img->height); j++) { // percorre linhas
 	    /* Zera algumas variaveis de interesse */
 	    	media[1] = 0;
 	     	count[1] = 0;
 
 	     	for(int k=i-N; k<=i+N; k++){ // percorre colunas
-	       	if(k<0||k>(img.width)) continue; // Retira bordas
+	       	if(k<0||k>(img->width)) continue; // Retira bordas
 	       	for(int l=j-N; l<=j+N; l++){ // percorre linhas
-	         	if(l<0 || l>(img.height)) continue; // Retira bordas
-	       		media[1] += img.g[l*img.width+k];
+	         	if(l<0 || l>(img->height)) continue; // Retira bordas
+	       		media[1] += img->g[l*img->width+k];
 	          count[1]++;
 	       	}
 	     	}
 				media[1] = media[1]/count[1];
 				tmp = media[1];
 				if(tmp>255) tmp = 255;
-				img.g[j*img.width + i] = tmp;
+				img->g[j*img->width + i] = tmp;
 	    }
 	  }
 		break;
 	case 2:
-		rgb=0;
+		rgb++;
 		pthread_mutex_unlock(&trava);
-	 	for (int i=0; i<(img.width); i++) { // percorre colunas
-	  	for (int j=0; j<(img.height); j++) { // percorre linhas
+	 	for (int i=0; i<(img->width); i++) { // percorre colunas
+	  	for (int j=0; j<(img->height); j++) { // percorre linhas
 	    /* Zera algumas variaveis de interesse */
 	    	media[2] = 0;
 	     	count[2] = 0;
 
 	     	for(int k=i-N; k<=i+N; k++){ // percorre colunas
-	       	if(k<0||k>(img.width)) continue; // Retira bordas
+	       	if(k<0||k>(img->width)) continue; // Retira bordas
 	       	for(int l=j-N; l<=j+N; l++){ // percorre linhas
-	         	if(l<0 || l>(img.height)) continue; // Retira bordas
-	       		media[2] += img.b[l*img.width+k];
+	         	if(l<0 || l>(img->height)) continue; // Retira bordas
+	       		media[2] += img->b[l*img->width+k];
 	          count[2]++;
 	       	}
 	     	}
 				media[2] = media[2]/count[2];
 				tmp = media[2];
 				if(tmp>255) tmp = 255;
-				img.b[j*img.width + i] = tmp;
+				img->b[j*img->width + i] = tmp;
 	    }
 	  }
 		break;
@@ -108,24 +113,25 @@ int main() {
   scanf("%d", &quantidade);
 
   // Imagem?
-  
+	img = (imagem*) mmap(NULL, sizeof(imagem), protection, visibility, 0, 0);
+
   switch(tipo){
     case 'N':
       for(int run=0; run<quantidade; run++){
-        img = abrir_imagem("data/cachorro.jpg");
-		    for (int i=0; i<(img.width); i++) { // percorre colunas
-		      for (int j=0; j<(img.height); j++) { // percorre linhas
+        *img = abrir_imagem("data/cachorro.jpg");
+		    for (int i=0; i<(img->width); i++) { // percorre colunas
+		      for (int j=0; j<(img->height); j++) { // percorre linhas
 		        /* Zera algumas variaveis de interesse */
 		        for(char aux=0; aux<3; aux++) media[aux] = 0;
 		        for(char aux=0; aux<3; aux++) count[aux] = 0;
 
 		        for(int k=i-N; k<=i+N; k++){ // percorre colunas
-		          if(k<0||k>(img.width)) continue; // Retira bordas
+		          if(k<0||k>(img->width)) continue; // Retira bordas
 		          for(int l=j-N; l<=j+N; l++){ // percorre linhas
-		            if(l<0 || l>(img.height)) continue; // Retira bordas
-		            media[0] += img.r[l*img.width+k];
-		            media[1] += img.g[l*img.width+k];
-		            media[2] += img.b[l*img.width+k];
+		            if(l<0 || l>(img->height)) continue; // Retira bordas
+		            media[0] += img->r[l*img->width+k];
+		            media[1] += img->g[l*img->width+k];
+		            media[2] += img->b[l*img->width+k];
 		            for(char aux=0; aux<3; aux++) count[aux]++;
 		          }
 		        }
@@ -134,21 +140,21 @@ int main() {
 		          tmp = media[aux];
 		          if(tmp>255) tmp = 255;
 		          switch(aux){
-		            case 0: img.r[j*img.width + i] = tmp; break;
-		            case 1: img.g[j*img.width + i] = tmp; break;
-		            case 2: img.b[j*img.width + i] = tmp; break;
+		            case 0: img->r[j*img->width + i] = tmp; break;
+		            case 1: img->g[j*img->width + i] = tmp; break;
+		            case 2: img->b[j*img->width + i] = tmp; break;
 		          }
 		        }
 		      }
 		    }
-        salvar_imagem("data/cachorro-out.jpg", &img);
-        liberar_imagem(&img);
+        salvar_imagem("data/cachorro-out.jpg", img);
+        liberar_imagem(img);
       }
 		  break; 
   
     case 'T':
 			for(int run=0; run<quantidade; run++){
-        img = abrir_imagem("data/cachorro.jpg");
+        *img = abrir_imagem("data/cachorro.jpg");
 			  /* Gera N_THREADS threads para processamento dos números */
 			  for(char j=0; j<3; j++){
 				  pthread_mutex_lock(&trava);
@@ -162,12 +168,15 @@ int main() {
 				  pthread_join(threads[j], NULL);
 				  //printf("Thread %d finalizou\n", j);
 			  }
-			  salvar_imagem("data/cachorro-out.jpg", &img);
-        liberar_imagem(&img);
+			  salvar_imagem("data/cachorro-out.jpg", img);
+        liberar_imagem(img);
       }
       break;
 
     case 'P':
+			*img = abrir_imagem("data/cachorro.jpg");
+			salvar_imagem("data/cachorro-out.jpg", img);
+      liberar_imagem(img);
       break;
   } 
   return 0;
