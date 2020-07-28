@@ -24,14 +24,11 @@ int visibility = MAP_SHARED | MAP_ANON;
 imagem *img;
 
 void *thread(void *args){
-	char* p_j  = (char*) args;
-	char j  = *p_j;
-	unsigned long long n;
-	
 	pthread_mutex_lock(&trava);
+  //printf("rgb = %d\n", rgb);
 	switch(rgb){
 	case 0:
-		rgb++;
+    rgb=1;
 		pthread_mutex_unlock(&trava);
 	 	for (int i=0; i<(img->width); i++) { // percorre colunas
 	  	for (int j=0; j<(img->height); j++) { // percorre linhas
@@ -55,7 +52,7 @@ void *thread(void *args){
 	  }
 		break;
 	case 1:
-		rgb++;
+    rgb=2;
 		pthread_mutex_unlock(&trava);
 	 	for (int i=0; i<(img->width); i++) { // percorre colunas
 	  	for (int j=0; j<(img->height); j++) { // percorre linhas
@@ -79,7 +76,7 @@ void *thread(void *args){
 	  }
 		break;
 	case 2:
-		rgb++;
+    rgb=0;
 		pthread_mutex_unlock(&trava);
 	 	for (int i=0; i<(img->width); i++) { // percorre colunas
 	  	for (int j=0; j<(img->height); j++) { // percorre linhas
@@ -156,17 +153,17 @@ int main() {
 			for(int run=0; run<quantidade; run++){
         *img = abrir_imagem("data/cachorro.jpg");
 			  /* Gera N_THREADS threads para processamento dos números */
-			  for(char j=0; j<3; j++){
+			  for(char num_thread=0; num_thread<3; num_thread++){
 				  pthread_mutex_lock(&trava);
-				  //printf("Gerando thread %d...\n", j);
-				  pthread_create(&threads[j], NULL, thread, &j);
+				  //printf("Gerando thread %d...\n", num_thread);
+				  pthread_create(&threads[num_thread], NULL, thread, &num_thread);
 				  pthread_mutex_unlock(&trava);
 			  }
 			  /* Espera finalização de todos os processos filhos */
 			  //printf("Todos as threads foram geradas. Esperando...\n");
-  		  for (char j=0; j<3; j++){
-				  pthread_join(threads[j], NULL);
-				  //printf("Thread %d finalizou\n", j);
+  		  for (char num_thread=0; num_thread<3; num_thread++){
+				  pthread_join(threads[num_thread], NULL);
+				  //printf("Thread %d finalizou\n", num_thread);
 			  }
 			  salvar_imagem("data/cachorro-out.jpg", img);
         liberar_imagem(img);
