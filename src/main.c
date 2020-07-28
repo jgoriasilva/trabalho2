@@ -8,12 +8,12 @@
 #include <string.h>
 #include <pthread.h>
 
-#define N 3
+#define N 7
 
+int tmp;
 pthread_t threads[3];
 pthread_mutex_t trava;
 int quantidade, rgb=0;
-unsigned int tmp;
 int media[3], count[3];
 char tipo;
 pid_t filhos[3]; 
@@ -30,7 +30,7 @@ void *thread(void *args){
 	switch(rgb){
 	case 0:
     rgb=1;
-		pthread_mutex_unlock(&trava);
+    pthread_mutex_unlock(&trava);
 	 	for (int i=0; i<(img->width); i++) { // percorre colunas
 	  	for (int j=0; j<(img->height); j++) { // percorre linhas
 	    /* Zera algumas variaveis de interesse */
@@ -175,14 +175,14 @@ int main() {
       for(int run=0; run<quantidade; run++){
 				*img = abrir_imagem("data/cachorro.jpg");
 				for(char num_process=0; num_process<3; num_process++){
-					printf("Gerando filho %d...\n", num_process);
+					//printf("Gerando filho %d...\n", num_process);
 					filhos[num_process] = fork();
-					printf("PID do filho %d = %d\n", num_process, filhos[num_process]);
+					//printf("PID do filho %d = %d\n", num_process, filhos[num_process]);
 					if(filhos[num_process] == 0){
-		        printf("Filho %d\n", num_process);
+		        //printf("Filho %d\n", num_process);
 						switch(num_process){
 							case 0:
-		            printf("RED\n");
+		            //printf("RED\n");
 							 	for (int i=0; i<(img->width); i++) { // percorre colunas
 									for (int j=0; j<(img->height); j++) { // percorre linhas
 									/* Zera algumas variaveis de interesse */
@@ -206,7 +206,7 @@ int main() {
 								}
 								break;
 							case 1:
-		            printf("GREEN\n");
+		            //printf("GREEN\n");
 							 	for (int i=0; i<(img->width); i++) { // percorre colunas
 									for (int j=0; j<(img->height); j++) { // percorre linhas
 									/* Zera algumas variaveis de interesse */
@@ -229,7 +229,7 @@ int main() {
 								}
 								break;
 							case 2:
-		            printf("BLUE\n");
+		            //printf("BLUE\n");
 							 	for (int i=0; i<(img->width); i++) { // percorre colunas
 									for (int j=0; j<(img->height); j++) { // percorre linhas
 									/* Zera algumas variaveis de interesse */
@@ -252,10 +252,10 @@ int main() {
 								}
 								break;
 							}
-						printf("Saindo do processo %d\n", num_process);
+						//printf("Saindo do processo %d\n", num_process);
 						exit(0);
 					}
-					printf("Pai de numero %d\n", num_process);
+					//printf("Pai de numero %d\n", num_process);
 				}
 
 				/* Espera finalização de todos os processos filhos */
