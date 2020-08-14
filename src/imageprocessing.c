@@ -1,6 +1,9 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <sys/mman.h>
 
 #include "imageprocessing.h"
 
@@ -12,9 +15,10 @@ void salvar_imagem(char *nome_do_arquivo);
 void liberar_imagem(imagem *i);
  */
 
+int x, y;
+
 imagem abrir_imagem(char *nome_do_arquivo) {
   FIBITMAP *bitmapIn;
-  int x, y;
   RGBQUAD color;
   imagem I;
 
@@ -31,9 +35,12 @@ imagem abrir_imagem(char *nome_do_arquivo) {
 
   I.width = x;
   I.height = y;
-  I.r = malloc(sizeof(float) * x * y);
-  I.g = malloc(sizeof(float) * x * y);
-  I.b = malloc(sizeof(float) * x * y);
+  //I.r = malloc(sizeof(float) * x * y);
+  I.r = (float*) mmap(NULL, sizeof(float) * x * y, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANON, 0, 0);
+  //I.g = malloc(sizeof(float) * x * y);
+  I.g = (float*) mmap(NULL, sizeof(float) * x * y, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANON, 0, 0);
+  //I.b = malloc(sizeof(float) * x * y);
+  I.b = (float*) mmap(NULL, sizeof(float) * x * y, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANON, 0, 0);
 
    for (int i=0; i<x; i++) {
      for (int j=0; j <y; j++) {
@@ -52,9 +59,9 @@ imagem abrir_imagem(char *nome_do_arquivo) {
 }
 
 void liberar_imagem(imagem *I) {
-  free(I->r);
-  free(I->g);
-  free(I->b);
+  munmap(I->r, sizeof(float) * x * y);
+  munmap(I->g, sizeof(float) * x * y);
+  munmap(I->b, sizeof(float) * x * y);
 }
 
 void salvar_imagem(char *nome_do_arquivo, imagem *I) {
