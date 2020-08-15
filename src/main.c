@@ -1,3 +1,9 @@
+/*
+Nome: João Antônio Gória Silva
+RA: 199567
+*/
+
+
 #include "imageprocessing.h"
 #include <stdio.h>
 #include <sys/types.h>
@@ -8,6 +14,7 @@
 #include <string.h>
 #include <pthread.h>
 
+/* Define algumas variáveis de interesse*/
 int tmp;
 pthread_t threads[3];
 pthread_mutex_t trava;
@@ -22,8 +29,8 @@ pid_t filhos[3];
 imagem *p_img;
 
 void *thread(void *args){
-	pthread_mutex_lock(&trava);
-  //printf("rgb = %d\n", rgb);
+	// Trava código até que a thread escolha a cor que irá processar
+  pthread_mutex_lock(&trava);
 	switch(rgb){
 	case 0:
     rgb=1;
@@ -42,10 +49,12 @@ void *thread(void *args){
 	          count[0]++;
 	       	}
 	     	}
-				media[0] = media[0]/count[0];
+    		// Calcula de fato a média dos N valores ao redor do pixel atual		
+        media[0] = media[0]/count[0];
 				tmp = media[0];
 				if(tmp>255) tmp = 255;
-				p_img->r[j*p_img->width + i] = tmp;
+				// Atribui valor calculado ao pixel atual
+        p_img->r[j*p_img->width + i] = tmp;
 	    }
 	  }
 		break;
@@ -118,7 +127,7 @@ void *tipo_none(void *args){
           for(char aux=0; aux<3; aux++) count[aux]++;
         }
       }
-      for(char aux=0; aux<3; aux++){
+      for(char aux=0; aux<3; aux++){ // Percorre as 3 cores
         media[aux] = media[aux]/count[aux];
         tmp = media[aux];
         if(tmp>255) tmp = 255;
