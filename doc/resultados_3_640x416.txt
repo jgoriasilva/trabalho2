@@ -1,0 +1,462 @@
+Tipo de execução [(N)one/(T)hread/(P)rocess]: N
+Quantidade de execuções: 50
+N: 3
+run = 0
+Tempo real: 0.432439 segundos
+Tempo user: 0.431617 segundos
+run = 1
+Tempo real: 0.432071 segundos
+Tempo user: 0.431355 segundos
+run = 2
+Tempo real: 0.430585 segundos
+Tempo user: 0.429688 segundos
+run = 3
+Tempo real: 0.448286 segundos
+Tempo user: 0.447352 segundos
+run = 4
+Tempo real: 0.446839 segundos
+Tempo user: 0.446021 segundos
+run = 5
+Tempo real: 0.441158 segundos
+Tempo user: 0.440215 segundos
+run = 6
+Tempo real: 0.447247 segundos
+Tempo user: 0.446385 segundos
+run = 7
+Tempo real: 0.454165 segundos
+Tempo user: 0.453271 segundos
+run = 8
+Tempo real: 0.439832 segundos
+Tempo user: 0.438835 segundos
+run = 9
+Tempo real: 0.476270 segundos
+Tempo user: 0.475327 segundos
+run = 10
+Tempo real: 0.451448 segundos
+Tempo user: 0.450615 segundos
+run = 11
+Tempo real: 0.484446 segundos
+Tempo user: 0.482028 segundos
+run = 12
+Tempo real: 0.448704 segundos
+Tempo user: 0.447877 segundos
+run = 13
+Tempo real: 0.458505 segundos
+Tempo user: 0.457598 segundos
+run = 14
+Tempo real: 0.444350 segundos
+Tempo user: 0.442336 segundos
+run = 15
+Tempo real: 0.461986 segundos
+Tempo user: 0.461932 segundos
+run = 16
+Tempo real: 0.467625 segundos
+Tempo user: 0.467602 segundos
+run = 17
+Tempo real: 0.467697 segundos
+Tempo user: 0.467647 segundos
+run = 18
+Tempo real: 0.463619 segundos
+Tempo user: 0.463575 segundos
+run = 19
+Tempo real: 0.465612 segundos
+Tempo user: 0.465583 segundos
+run = 20
+Tempo real: 0.472071 segundos
+Tempo user: 0.470567 segundos
+run = 21
+Tempo real: 0.495708 segundos
+Tempo user: 0.495419 segundos
+run = 22
+Tempo real: 0.516715 segundos
+Tempo user: 0.516437 segundos
+run = 23
+Tempo real: 0.481590 segundos
+Tempo user: 0.481542 segundos
+run = 24
+Tempo real: 0.480478 segundos
+Tempo user: 0.480459 segundos
+run = 25
+Tempo real: 0.456451 segundos
+Tempo user: 0.456444 segundos
+run = 26
+Tempo real: 0.462763 segundos
+Tempo user: 0.460769 segundos
+run = 27
+Tempo real: 0.456216 segundos
+Tempo user: 0.456203 segundos
+run = 28
+Tempo real: 0.473101 segundos
+Tempo user: 0.472866 segundos
+run = 29
+Tempo real: 0.463116 segundos
+Tempo user: 0.463065 segundos
+run = 30
+Tempo real: 0.470795 segundos
+Tempo user: 0.470740 segundos
+run = 31
+Tempo real: 0.487404 segundos
+Tempo user: 0.487376 segundos
+run = 32
+Tempo real: 0.465978 segundos
+Tempo user: 0.465747 segundos
+run = 33
+Tempo real: 0.481879 segundos
+Tempo user: 0.481846 segundos
+run = 34
+Tempo real: 0.469784 segundos
+Tempo user: 0.468613 segundos
+run = 35
+Tempo real: 0.467505 segundos
+Tempo user: 0.467476 segundos
+run = 36
+Tempo real: 0.460055 segundos
+Tempo user: 0.460049 segundos
+run = 37
+Tempo real: 0.467066 segundos
+Tempo user: 0.466372 segundos
+run = 38
+Tempo real: 0.454519 segundos
+Tempo user: 0.454513 segundos
+run = 39
+Tempo real: 0.455333 segundos
+Tempo user: 0.455274 segundos
+run = 40
+Tempo real: 0.454562 segundos
+Tempo user: 0.454530 segundos
+run = 41
+Tempo real: 0.464139 segundos
+Tempo user: 0.464119 segundos
+run = 42
+Tempo real: 0.458226 segundos
+Tempo user: 0.458220 segundos
+run = 43
+Tempo real: 0.464514 segundos
+Tempo user: 0.464478 segundos
+run = 44
+Tempo real: 0.460571 segundos
+Tempo user: 0.460556 segundos
+run = 45
+Tempo real: 0.464004 segundos
+Tempo user: 0.463970 segundos
+run = 46
+Tempo real: 0.465759 segundos
+Tempo user: 0.465710 segundos
+run = 47
+Tempo real: 0.463653 segundos
+Tempo user: 0.463631 segundos
+run = 48
+Tempo real: 0.459721 segundos
+Tempo user: 0.459700 segundos
+run = 49
+Tempo real: 0.461046 segundos
+Tempo user: 0.461040 segundos
+
+Tipo de execução [(N)one/(T)hread/(P)rocess]: T
+Quantidade de execuções: 50
+N: 3
+run = 0
+Tempo real: 0.906513 segundos
+Tempo user: 2.348518 segundos
+run = 1
+Tempo real: 1.009241 segundos
+Tempo user: 2.529788 segundos
+run = 2
+Tempo real: 0.907239 segundos
+Tempo user: 2.344235 segundos
+run = 3
+Tempo real: 0.960738 segundos
+Tempo user: 2.461000 segundos
+run = 4
+Tempo real: 0.900772 segundos
+Tempo user: 2.350509 segundos
+run = 5
+Tempo real: 0.988933 segundos
+Tempo user: 2.576891 segundos
+run = 6
+Tempo real: 1.030833 segundos
+Tempo user: 2.623379 segundos
+run = 7
+Tempo real: 1.045352 segundos
+Tempo user: 2.576166 segundos
+run = 8
+Tempo real: 1.043915 segundos
+Tempo user: 2.635646 segundos
+run = 9
+Tempo real: 1.003445 segundos
+Tempo user: 2.495675 segundos
+run = 10
+Tempo real: 0.955218 segundos
+Tempo user: 2.476690 segundos
+run = 11
+Tempo real: 0.935754 segundos
+Tempo user: 2.442286 segundos
+run = 12
+Tempo real: 0.992047 segundos
+Tempo user: 2.174636 segundos
+run = 13
+Tempo real: 1.058835 segundos
+Tempo user: 2.537486 segundos
+run = 14
+Tempo real: 0.962086 segundos
+Tempo user: 2.388181 segundos
+run = 15
+Tempo real: 1.037555 segundos
+Tempo user: 2.581451 segundos
+run = 16
+Tempo real: 0.983330 segundos
+Tempo user: 2.479556 segundos
+run = 17
+Tempo real: 1.006941 segundos
+Tempo user: 2.536684 segundos
+run = 18
+Tempo real: 1.057599 segundos
+Tempo user: 2.383609 segundos
+run = 19
+Tempo real: 1.094694 segundos
+Tempo user: 2.726404 segundos
+run = 20
+Tempo real: 0.992325 segundos
+Tempo user: 2.512995 segundos
+run = 21
+Tempo real: 0.950452 segundos
+Tempo user: 2.302086 segundos
+run = 22
+Tempo real: 0.984931 segundos
+Tempo user: 2.536488 segundos
+run = 23
+Tempo real: 1.256234 segundos
+Tempo user: 3.331443 segundos
+run = 24
+Tempo real: 1.087747 segundos
+Tempo user: 2.854614 segundos
+run = 25
+Tempo real: 1.026654 segundos
+Tempo user: 2.706323 segundos
+run = 26
+Tempo real: 1.141606 segundos
+Tempo user: 2.978816 segundos
+run = 27
+Tempo real: 1.079502 segundos
+Tempo user: 2.701467 segundos
+run = 28
+Tempo real: 1.063679 segundos
+Tempo user: 2.778891 segundos
+run = 29
+Tempo real: 1.093247 segundos
+Tempo user: 2.750447 segundos
+run = 30
+Tempo real: 1.090943 segundos
+Tempo user: 2.796573 segundos
+run = 31
+Tempo real: 1.129710 segundos
+Tempo user: 2.944284 segundos
+run = 32
+Tempo real: 1.130785 segundos
+Tempo user: 2.936787 segundos
+run = 33
+Tempo real: 1.070146 segundos
+Tempo user: 2.767371 segundos
+run = 34
+Tempo real: 1.061175 segundos
+Tempo user: 2.767421 segundos
+run = 35
+Tempo real: 1.073913 segundos
+Tempo user: 2.872158 segundos
+run = 36
+Tempo real: 1.032929 segundos
+Tempo user: 2.677571 segundos
+run = 37
+Tempo real: 1.042001 segundos
+Tempo user: 2.731509 segundos
+run = 38
+Tempo real: 1.052494 segundos
+Tempo user: 2.790718 segundos
+run = 39
+Tempo real: 1.108544 segundos
+Tempo user: 2.787205 segundos
+run = 40
+Tempo real: 1.058439 segundos
+Tempo user: 2.753815 segundos
+run = 41
+Tempo real: 1.147367 segundos
+Tempo user: 2.846135 segundos
+run = 42
+Tempo real: 1.126378 segundos
+Tempo user: 2.885461 segundos
+run = 43
+Tempo real: 1.148499 segundos
+Tempo user: 2.903852 segundos
+run = 44
+Tempo real: 1.014819 segundos
+Tempo user: 2.593374 segundos
+run = 45
+Tempo real: 1.023567 segundos
+Tempo user: 2.637353 segundos
+run = 46
+Tempo real: 1.183688 segundos
+Tempo user: 3.158440 segundos
+run = 47
+Tempo real: 1.146406 segundos
+Tempo user: 3.082462 segundos
+run = 48
+Tempo real: 1.066585 segundos
+Tempo user: 2.796217 segundos
+run = 49
+Tempo real: 1.113567 segundos
+Tempo user: 2.878193 segundos
+
+Tipo de execução [(N)one/(T)hread/(P)rocess]: P
+Quantidade de execuções: 50
+N: 3
+run = 0
+Tempo real: 0.243220 segundos
+Tempo user: 0.065231 segundos
+run = 1
+Tempo real: 0.256263 segundos
+Tempo user: 0.068624 segundos
+run = 2
+Tempo real: 0.259277 segundos
+Tempo user: 0.065644 segundos
+run = 3
+Tempo real: 0.268446 segundos
+Tempo user: 0.066209 segundos
+run = 4
+Tempo real: 0.277993 segundos
+Tempo user: 0.068073 segundos
+run = 5
+Tempo real: 0.279648 segundos
+Tempo user: 0.065715 segundos
+run = 6
+Tempo real: 0.285027 segundos
+Tempo user: 0.069451 segundos
+run = 7
+Tempo real: 0.274545 segundos
+Tempo user: 0.068184 segundos
+run = 8
+Tempo real: 0.263229 segundos
+Tempo user: 0.066874 segundos
+run = 9
+Tempo real: 0.281538 segundos
+Tempo user: 0.070944 segundos
+run = 10
+Tempo real: 0.291357 segundos
+Tempo user: 0.071548 segundos
+run = 11
+Tempo real: 0.286930 segundos
+Tempo user: 0.071355 segundos
+run = 12
+Tempo real: 0.289515 segundos
+Tempo user: 0.073745 segundos
+run = 13
+Tempo real: 0.286171 segundos
+Tempo user: 0.075247 segundos
+run = 14
+Tempo real: 0.289477 segundos
+Tempo user: 0.076106 segundos
+run = 15
+Tempo real: 0.284605 segundos
+Tempo user: 0.072249 segundos
+run = 16
+Tempo real: 0.284544 segundos
+Tempo user: 0.077496 segundos
+run = 17
+Tempo real: 0.290699 segundos
+Tempo user: 0.073797 segundos
+run = 18
+Tempo real: 0.284671 segundos
+Tempo user: 0.074708 segundos
+run = 19
+Tempo real: 0.297235 segundos
+Tempo user: 0.072007 segundos
+run = 20
+Tempo real: 0.288589 segundos
+Tempo user: 0.067699 segundos
+run = 21
+Tempo real: 0.279080 segundos
+Tempo user: 0.070063 segundos
+run = 22
+Tempo real: 0.278420 segundos
+Tempo user: 0.069316 segundos
+run = 23
+Tempo real: 0.303732 segundos
+Tempo user: 0.077805 segundos
+run = 24
+Tempo real: 0.286926 segundos
+Tempo user: 0.071818 segundos
+run = 25
+Tempo real: 0.285040 segundos
+Tempo user: 0.073178 segundos
+run = 26
+Tempo real: 0.290262 segundos
+Tempo user: 0.074538 segundos
+run = 27
+Tempo real: 0.287353 segundos
+Tempo user: 0.078353 segundos
+run = 28
+Tempo real: 0.292587 segundos
+Tempo user: 0.070211 segundos
+run = 29
+Tempo real: 0.289591 segundos
+Tempo user: 0.072480 segundos
+run = 30
+Tempo real: 0.295258 segundos
+Tempo user: 0.075430 segundos
+run = 31
+Tempo real: 0.300838 segundos
+Tempo user: 0.073749 segundos
+run = 32
+Tempo real: 0.319926 segundos
+Tempo user: 0.078958 segundos
+run = 33
+Tempo real: 0.309372 segundos
+Tempo user: 0.075727 segundos
+run = 34
+Tempo real: 0.304620 segundos
+Tempo user: 0.076598 segundos
+run = 35
+Tempo real: 0.344302 segundos
+Tempo user: 0.080641 segundos
+run = 36
+Tempo real: 0.302671 segundos
+Tempo user: 0.082765 segundos
+run = 37
+Tempo real: 0.300624 segundos
+Tempo user: 0.080200 segundos
+run = 38
+Tempo real: 0.312640 segundos
+Tempo user: 0.077293 segundos
+run = 39
+Tempo real: 0.319386 segundos
+Tempo user: 0.084053 segundos
+run = 40
+Tempo real: 0.294766 segundos
+Tempo user: 0.076949 segundos
+run = 41
+Tempo real: 0.292012 segundos
+Tempo user: 0.079296 segundos
+run = 42
+Tempo real: 0.301223 segundos
+Tempo user: 0.074429 segundos
+run = 43
+Tempo real: 0.297959 segundos
+Tempo user: 0.077160 segundos
+run = 44
+Tempo real: 0.287983 segundos
+Tempo user: 0.078401 segundos
+run = 45
+Tempo real: 0.271459 segundos
+Tempo user: 0.075856 segundos
+run = 46
+Tempo real: 0.277894 segundos
+Tempo user: 0.074848 segundos
+run = 47
+Tempo real: 0.279843 segundos
+Tempo user: 0.075555 segundos
+run = 48
+Tempo real: 0.298732 segundos
+Tempo user: 0.077629 segundos
+run = 49
+Tempo real: 0.295869 segundos
+Tempo user: 0.077219 segundos
+
