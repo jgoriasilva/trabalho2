@@ -151,7 +151,7 @@ Tempo user: 2.679804 segundos
 run = 49
 Tempo real: 2.820651 segundos
 Tempo user: 2.820489 segundos
-
+*
 Tipo de execução [(N)one/(T)hread/(P)rocess]: T
 Quantidade de execuções: 50
 N: 3
@@ -305,7 +305,7 @@ Tempo user: 16.042266 segundos
 run = 49
 Tempo real: 6.495038 segundos
 Tempo user: 17.232000 segundos
-
+*
 Tipo de execução [(N)one/(T)hread/(P)rocess]: P
 Quantidade de execuções: 50
 N: 3
@@ -459,4 +459,4 @@ Tempo user: 0.527796 segundos
 run = 49
 Tempo real: 1.626447 segundos
 Tempo user: 0.519089 segundos
-
+*
