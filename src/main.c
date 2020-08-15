@@ -8,14 +8,14 @@
 #include <string.h>
 #include <pthread.h>
 
-#define N 7
-
 int tmp;
 pthread_t threads[3];
 pthread_mutex_t trava;
 int quantidade, rgb=0;
 int media[3], count[3];
 char tipo;
+char *nome;
+int N;
 pid_t filhos[3]; 
 
 /* Criar area de memoria compartilhada */
@@ -101,7 +101,7 @@ void *thread(void *args){
 }
 
 void *tipo_none(void *args){
-  *p_img = abrir_imagem("data/cachorro.jpg");
+  *p_img = abrir_imagem("data/paisagem.jpg");
   for (int i=0; i<(p_img->width); i++) { // percorre colunas
     for (int j=0; j<(p_img->height); j++) { // percorre linhas
       /* Zera algumas variaveis de interesse */
@@ -130,12 +130,12 @@ void *tipo_none(void *args){
       }
     }
   }
-  salvar_imagem("data/cachorro-out-none.jpg", p_img);
+  salvar_imagem("data/paisagem-out-none.jpg", p_img);
   liberar_imagem(p_img);
 }
 
 void *tipo_thread(void *args){
-  *p_img = abrir_imagem("data/cachorro.jpg");
+  *p_img = abrir_imagem("data/paisagem.jpg");
   /* Gera N_THREADS threads para processamento dos números */
   for(char num_thread=0; num_thread<3; num_thread++){
 	  pthread_mutex_lock(&trava);
@@ -149,12 +149,12 @@ void *tipo_thread(void *args){
 	  pthread_join(threads[num_thread], NULL);
 	  //printf("Thread %d finalizou\n", num_thread);
   }
-  salvar_imagem("data/cachorro-out-thread.jpg", p_img);
+  salvar_imagem("data/paisagem-out-thread.jpg", p_img);
   liberar_imagem(p_img);
 }
 
 void *tipo_process(void *args){
-	*p_img = abrir_imagem("data/cachorro.jpg");
+	*p_img = abrir_imagem("data/paisagem.jpg");
   //printf("p_img->r(65,67) = %f\n", p_img->r[65*p_img->width+67]);
   //printf("p_img->g(65,67) = %f\n", p_img->g[65*p_img->width+67]);
   //printf("p_img->b(65,67) = %f\n", p_img->b[65*p_img->width+67]);
@@ -257,7 +257,7 @@ void *tipo_process(void *args){
   //printf("p_img->g(65,67) = %f\n", p_img->g[65*p_img->width+67]);
   //printf("p_img->b(65,67) = %f\n", p_img->b[65*p_img->width+67]);
 	
-	salvar_imagem("data/cachorro-out-process.jpg", p_img);
+	salvar_imagem("data/paisagem-out-process.jpg", p_img);
   liberar_imagem(p_img);
 }
 
@@ -268,23 +268,33 @@ int main() {
   printf("Quantidade de execuções: ");
   scanf("%d", &quantidade);
 
+  printf("N: ");
+  scanf("%d", &N);
+
 	p_img = (imagem*) mmap(NULL, sizeof(imagem), PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANON, 0, 0);
 
   switch(tipo){
     case 'N':
-			for(int run=0; run<quantidade; run++)
-      	medir_tempo(tipo_none);
+			for(int run=0; run<quantidade; run++){
+      	printf("run = %d\n", run);
+        medir_tempo(tipo_none);
+      }
 		  break; 
   
     case 'T':
-			for(int run=0; run<quantidade; run++)      
+			for(int run=0; run<quantidade; run++){     
+      	printf("run = %d\n", run);
 				medir_tempo(tipo_thread);
+      }
       break;
 
     case 'P':
-			for(int run=0; run<quantidade; run++)
+			for(int run=0; run<quantidade; run++){
+      	printf("run = %d\n", run);
       	medir_tempo(tipo_process);
+      }
     	break;
 	}
+  munmap(p_img, sizeof(imagem));
   return 0;
 }
