@@ -6,6 +6,8 @@ import math
 media = 0
 desvio = 0
 dados = []
+data = []
+matrix = []
 
 for f in glob.glob('*.txt'):
   arq = open(f, 'r')
@@ -23,9 +25,12 @@ for f in glob.glob('*.txt'):
         desvio += (element-media)**2
       desvio = math.sqrt(desvio/len(dados))
       [N, size] = f.replace('.txt', '').replace('resultados_','').split('_')
-      print(N + ' '+ size +' ' + tipo + ' ' + str(media) + ' ' + str(desvio))
+      data = [N] + [size] + [tipo] + [media] + [desvio]
+      matrix = matrix + data
       media = 0
       desvio = 0
       dados.clear()
+      data.clear()
       continue
-  arq.close()  
+  arq.close() 
+print(matrix) 
