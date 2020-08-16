@@ -1,6 +1,6 @@
 # EA876 - Trabalho 2
 
-Este trabalho tem como objetivo determinar se a aplicação de um filtro de iamgem é mais rápida se ocorrer em uma única linha de execução, em múltiplas threads ou em múltiplos processos
+Este trabalho tem como objetivo determinar se a aplicação de um filtro de imagem é mais rápida se ocorrer em uma única linha de execução, em múltiplas threads ou em múltiplos processos.
 
 ## Descrição
 
