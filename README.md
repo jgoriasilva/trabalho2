@@ -1,16 +1,16 @@
-# EA876 - Trabalho 1
+# EA876 - Trabalho 2
 
-Este trabalho tem como objetivo a implementação de um programa que converte expressões matemáticas para um código assembly equivalente.
+Este trabalho tem como objetivo determinar se a aplicação de um filtro de iamgem é mais rápida se ocorrer em uma única linha de execução, em múltiplas threads ou em múltiplos processos
 
 ## Descrição
 
-Ao ser executado, o código espera a inserção por parte do usuário de uma expressão matemática a ser convertida para um código assembly executável no simulador online disponível em [schweigi-simulator](https://schweigi.github.io/assembler-simulator).
+Ao ser executado, o programa espera a inserção por parte do usuário de algumas informações de execução, a saber: a variação a ser utilizada (None, Thread ou Process), a quantidade de execuções a serem realizadas e o parâmetro N do filtro de imagem.
 
 ## Utilização
 
 ### Dependências
 
-Para o correto funcionamento do programa, é necessário possuir make, bison e flex.
+Para o correto funcionamento do programa, é necessário possuir make e a biblioteca FreeImage instalados.
 
 ### Executando o programa
 
@@ -18,15 +18,12 @@ A execução do programa é bem simples. Para executá-lo, basta digitar o coman
 
 ### Durante a execução
 
-Depois de digitar o comando 'make run' no terminal, o programa será executado. O usuário deve então simplesmente digitar alguma expressão matemática cuja conversão para código assembly é desejada. As expressões podem ser dos seguintes tipos:
-
-* Atribuição de valor a variável: 'VAR' = 'EXPRESSÃO'. Um exemplo deste caso é a seguinte expressão: "a = 5+3". As variáveis são letras de a-z, minúsculas. Uma expressão válida também é, por exemplo, "a = a+1", desde que "a" já tenha recebido um valor anteriormente.
-* Expressão matemática pura, com resultado retornando para o registrador A. Neste caso, o usuário pode digitar qualquer expressão matemática que possua as operações de adição '+', multiplicação '\*', divisão '/' e potenciação '^'. Também é possível a utilização de parênteses '(' e ')'. O usuário pode também utilizar uma variável com valor previamente atribuído como operando de qualquer operação. Um exemplo: "2+a\*(b/3)+(b^2)".
+Depois de digitar o comando 'make run' no terminal, o programa será executado. O usuário deve então simplesmente entrar com alguns parâmetros de execução, como a variação a ser utilizada (None, Thread ou Process), o número de execuções e o parâmetro N do filtro blur. A imagem utilizada para filtragem deve ser selecionada através do código fonte.
 
 ### Resultado
 
-O programa irá então printar o código assembly a ser executado no simulador supracitado para a execução da expressão matemática inserida pelo usuário. Para maior conforto do usuário, o código gerado apresenta as expressões inseridas como comentários para o código assembly, bem como o resultado final da expressão. Assim sendo, o usuário precisa simplesmente copiar todo o texto imprimido na tela e colá-lo no simulador para que a execução seja feita.
-
+O programa irá gerar as imagens filtradas no diretório 'data/'. Além disso, o programa printa o tempo de execução de cada execução na tela do usuário.
+O diretório 'doc/' contém as figuras geradas pelo código 'doc/plot.py', que processa o tempo de execução do código 'src/main.c'. A figura 'Resultados.pdf' possui todas as imagens em um só arquivo, como solicitado. A execução do código 'doc/plot.py' é por conta do usuário.
 
 ## Autor
 

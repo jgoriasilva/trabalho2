@@ -12,7 +12,7 @@ if (ans == 's'):
 	desvio = 0
 	dados = []
 	out = open("Resultados.txt", "w")
-	for f in glob.glob('*.txt'):
+	for f in glob.glob('[!Resultados]*.txt'):
 		arq = open(f, 'r')
 		for line in arq:
 		  if(line.startswith("Tipo")):
@@ -60,13 +60,12 @@ print(deviation)
 '''
 
 for i in range(0,len(tipo),3):
-  print(i)
   plt.figure()
   #ax = fig.add_axes([0,0,1,1])
   plt.bar([tipo[i], tipo[i+1], tipo[i+2]],[media[i], media[i+1], media[i+2]], color=['b', 'r', 'g'], yerr = [dp[i], dp[i+1], dp[i+2]], align='center', alpha=0.5, ecolor='black', capsize=10)
-  plt.ylabel('Media [s]')
+  plt.ylabel('Tempo [s]')
   plt.title('Tamanho '+size[i]+' e N = '+N[i])
-  plt.xlabel('tipo')
+  plt.xlabel('Variação: (N)one (T)hread (P)rocess')
   plt.plot()
-
+  plt.savefig(size[i]+'_'+N[i])
 plt.show()
