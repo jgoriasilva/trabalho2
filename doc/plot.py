@@ -44,11 +44,13 @@ for line in f:
   data = data + dados
 f.close()
 
+
 tipo = data[0:len(data):5]
 size = data[1:len(data):5]
 N = data[2:len(data):5]
 media = np.array(list(map(float, data[3:len(data):5])))
 deviation = np.array(list(map(float, data[4:len(data):5])))
+
 '''
 print(tipo)
 print(size)
@@ -56,11 +58,15 @@ print(N)
 print(media)
 print(deviation)
 '''
-X = np.arange(24)
-fig = plt.figure()
-ax = fig.add_axes([0,0,1,1])
-ax.bar(X + 0.00, media[0:len(media):3], color = 'b', width = 0.25)
-ax.bar(X + 0.25, media[1:len(media):3], color = 'g', width = 0.25)
-ax.bar(X + 0.50, media[2:len(media):3], color = 'r', width = 0.25)
-ax.legend(labels=['N', 'T', 'P'])
+
+for i in range(0,len(tipo),3):
+  print(i)
+  plt.figure()
+  #ax = fig.add_axes([0,0,1,1])
+  plt.bar([tipo[i], tipo[i+1], tipo[i+2]],[media[i], media[i+1], media[i+2]], color=['b', 'r', 'g'])
+  plt.ylabel('Media [s]')
+  plt.title('Tamanho '+size[i]+' e N = '+N[i])
+  plt.xlabel('tipo')
+  plt.plot()
+
 plt.show()
