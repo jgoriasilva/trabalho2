@@ -49,7 +49,7 @@ tipo = data[0:len(data):5]
 size = data[1:len(data):5]
 N = data[2:len(data):5]
 media = np.array(list(map(float, data[3:len(data):5])))
-deviation = np.array(list(map(float, data[4:len(data):5])))
+dp = np.array(list(map(float, data[4:len(data):5])))
 
 '''
 print(tipo)
@@ -63,7 +63,7 @@ for i in range(0,len(tipo),3):
   print(i)
   plt.figure()
   #ax = fig.add_axes([0,0,1,1])
-  plt.bar([tipo[i], tipo[i+1], tipo[i+2]],[media[i], media[i+1], media[i+2]], color=['b', 'r', 'g'])
+  plt.bar([tipo[i], tipo[i+1], tipo[i+2]],[media[i], media[i+1], media[i+2]], color=['b', 'r', 'g'], yerr = [dp[i], dp[i+1], dp[i+2]], align='center', alpha=0.5, ecolor='black', capsize=10)
   plt.ylabel('Media [s]')
   plt.title('Tamanho '+size[i]+' e N = '+N[i])
   plt.xlabel('tipo')
